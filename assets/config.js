@@ -40,7 +40,7 @@ window.PRODUCTS = [
       "assets/products/vanica-5.jpg?v=2",
       "assets/products/vanica-6.jpg?v=2"
     ],
-    tone: "sky",
+    tone: "olive",
     weight: "زيت + كريم",
     badge: "كريم هدية",
     description: "طقم فانيكا (Vanica Body Care For Smoothness) لنعومة دائمة وبشرة مشرقة. يحتوي على زيت لعلاج الشعر تحت الجلد وتقليل نمو الشعر، ومعه كريم هدية لتقليل الشعر وتفتيح لون البشرة. بتركيبة فريدة غنية بالزيوت الطبيعية والمكوّنات المغذية التي تساعد على تحسين مرونة البشرة وترطيبها. مناسب لجميع أجزاء الجسم.",
@@ -57,25 +57,60 @@ window.PRODUCTS = [
     ]
   },
   {
-    id: "p2",
-    name: "منتج تجريبي 2",
-    subtitle: "عشبة علاجية",
-    price: 18000,
-    images: [],
-    tone: "teal",
-    weight: "150 غم",
-    description: "هذا وصف تجريبي للمنتج الثاني. سيتم استبداله بالمعلومات الحقيقية للمنتج: مكوّناته، فوائده، وطريقة استخدامه.",
-    points: ["أعشاب منتقاة بعناية", "بدون مواد حافظة", "مناسب للاستخدام اليومي"]
+    id: "insucure",
+    name: "InsuCure — إنسوكيور",
+    subtitle: "توازن طبيعي لمستوى السكر",
+    price: 25000,
+    images: [
+      "assets/products/insucure-1.jpg?v=2",
+      "assets/products/insucure-2.jpg?v=2",
+      "assets/products/insucure-3.jpg?v=2",
+      "assets/products/insucure-4.jpg?v=2",
+      "assets/products/insucure-5.jpg?v=2",
+      "assets/products/insucure-6.jpg?v=2"
+    ],
+    tone: "olive",
+    weight: "Organic",
+    description: "InsuCure — توازن طبيعي لمستوى السكر من قلب الطبيعة. تركيبة طبيعية من الأعشاب تساهم في خفض مستويات السكر، وتساعد على تحسين وظيفة البنكرياس وتنظيم إفراز الأنسولين، مع دعم كامل لأداء الجسم ليستعيد توازنه بشكل أسرع.",
+    points: ["تركيبة عشبية طبيعية (Organic)", "تساعد على خفض مستويات السكر", "تدعم وظيفة البنكرياس وتنظيم إفراز الأنسولين"],
+    sections: [
+      { title: "طريقة الاستخدام", items: ["ملعقة كبيرة مرتين يومياً", "مرة قبل الإفطار", "ومرة قبل العشاء"] },
+      { title: "تنبيه", items: ["لا يغني عن أدوية السكري الموصوفة من الطبيب", "يُنصح بمتابعة مستوى السكر واستشارة الطبيب قبل الاستخدام"] }
+    ]
   },
   {
-    id: "p3",
-    name: "منتج تجريبي 3",
-    subtitle: "زيت عشبي طبيعي",
-    price: 32000,
-    images: [],
-    tone: "sky",
-    weight: "100 مل",
-    description: "هذا وصف تجريبي للمنتج الثالث. سيتم استبداله بالمعلومات الحقيقية للمنتج: مكوّناته، فوائده، وطريقة استخدامه.",
-    points: ["معصور على البارد", "عبوة زجاجية داكنة", "للاستعمال الخارجي"]
+    id: "energyman",
+    name: "Energy Man — عسل الطاقة",
+    subtitle: "عسل طبيعي للطاقة والحيوية",
+    price: 25000,
+    images: [
+      "assets/products/energyman-1.jpg?v=2",
+      "assets/products/energyman-2.jpg?v=2",
+      "assets/products/energyman-3.jpg?v=2",
+      "assets/products/energyman-4.jpg?v=2",
+      "assets/products/energyman-5.jpg?v=2"
+    ],
+    fit: "contain",
+    bg: "#1c1712",
+    tone: "olive",
+    weight: "250 غم",
+    description: "Energy Man عسل طبيعي (Natural Honey) مخصّص للرجال، لدعم الطاقة والحيوية والقوة البدنية طوال اليوم. عبوة 250 غم محكمة الإغلاق.",
+    points: ["عسل طبيعي 100%", "يدعم الطاقة والحيوية والنشاط", "عبوة 250 غم / 250 مل"]
+  },
+  {
+    id: "africangel",
+    name: "الجل الأفريقي",
+    subtitle: "African Gel للرجال",
+    price: 25000,
+    images: ["assets/products/africangel-1.jpg?v=2"],
+    fit: "contain",
+    tone: "olive",
+    weight: "نوعان",
+    description: "الجل الأفريقي (African Gel) للرجال، للاستعمال الخارجي. عبوة بمضخة سهلة الاستخدام، ومتوفر بنوعين: الأحمر والأخضر.",
+    points: ["للاستعمال الخارجي فقط", "عبوة بمضخة عملية", "متوفر بنوعين: أحمر وأخضر"],
+    variants: [
+      { id: "red", name: "الأحمر", color: "#9b1c1c" },
+      { id: "green", name: "الأخضر", color: "#9dc12f" }
+    ]
   }
 ];
