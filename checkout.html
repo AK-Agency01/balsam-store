@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>إتمام الطلب | بَلسَم</title>
+<meta name="theme-color" content="#14211c">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="checkout">
+<main class="wrap">
+  <div class="crumbs"><a href="./">المنتجات</a> / إتمام الطلب</div>
+  <form id="form" class="checkout" novalidate>
+    <div>
+      <section class="panel">
+        <h2><span class="num">1</span> معلومات التواصل</h2>
+        <div class="fields">
+          <div class="f"><label for="name">الاسم الكامل <i>*</i></label><input id="name" autocomplete="name" placeholder="مثال: علي حسين"><span class="err"></span></div>
+          <div class="f"><label for="phone">رقم الهاتف <i>*</i></label><input id="phone" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" placeholder="07XX XXX XXXX"><span class="err"></span></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2><span class="num">2</span> عنوان التوصيل</h2>
+        <div class="fields">
+          <div class="f"><label for="gov">المحافظة <i>*</i></label><select id="gov"></select><span class="err"></span></div>
+          <div class="f"><label for="area">المنطقة / الحي <i>*</i></label><input id="area" placeholder="مثال: المنصور"><span class="err"></span></div>
+          <div class="f full"><label for="address">العنوان الكامل <i>*</i></label><input id="address" autocomplete="street-address" placeholder="المحلة، الزقاق، رقم الدار"><span class="err"></span></div>
+          <div class="f full"><label for="landmark">أقرب نقطة دالة</label><input id="landmark" placeholder="مثال: قرب جامع … / مقابل مدرسة …"></div>
+          <div class="f full"><label for="notes">ملاحظات (اختياري)</label><textarea id="notes" placeholder="أي ملاحظة على الطلب أو وقت التوصيل"></textarea></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2><span class="num">3</span> طريقة الدفع</h2>
+        <div class="methods" id="methods"></div>
+        <div class="method-note" id="mnote"></div>
+      </section>
+    </div>
+
+    <aside class="panel summary">
+      <h2>ملخص الطلب</h2>
+      <div class="sitem" id="sitem"></div>
+      <div class="editq"><span style="font-weight:600;font-size:.92rem">الكمية</span>
+        <div class="qty"><button type="button" data-d="1" aria-label="زيادة">+</button><input id="cq" type="number" min="1" max="99" inputmode="numeric"><button type="button" data-d="-1" aria-label="إنقاص">−</button></div>
+      </div>
+      <div class="lines">
+        <div><span>المجموع <span id="l-qty"></span></span><span class="price" id="l-sub"></span></div>
+        <div><span>أجور التوصيل</span><span class="price" id="l-ship"></span></div>
+        <div class="grand"><span>الإجمالي</span><span id="l-tot"></span></div>
+      </div>
+      <button class="btn" id="place" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        تأكيد الطلب والدفع
+      </button>
+      <p class="safe" style="text-align:center">بالضغط على تأكيد الطلب فإنك توافق على <a href="privacy.html" style="color:var(--teal);margin-inline:3px">سياسة الخصوصية</a></p>
+    </aside>
+  </form>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

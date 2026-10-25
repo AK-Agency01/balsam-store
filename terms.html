@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سياسة الشحن والاسترجاع | بَلسَم</title>
+<meta name="theme-color" content="#14211c">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="terms">
+<main class="wrap"><article class="doc">
+  <h1>سياسة الشحن والاسترجاع</h1>
+  <p class="upd">آخر تحديث: 25 تشرين الأول 2026</p>
+
+  <h2>التوصيل</h2>
+  <ul>
+    <li>نوصل لجميع محافظات العراق.</li>
+    <li>أجور التوصيل داخل بغداد <b id="sb"></b>، وباقي المحافظات <b id="so"></b>.</li>
+    <li>مدة التوصيل من 1 إلى 3 أيام عمل داخل بغداد، ومن 2 إلى 5 أيام عمل لباقي المحافظات.</li>
+    <li>نتواصل معك هاتفياً لتأكيد الطلب قبل إرساله.</li>
+  </ul>
+
+  <h2>طرق الدفع</h2>
+  <ul>
+    <li>سوبر كي (كي كارد)، زين كاش، فاست باي.</li>
+    <li>بطاقات فيزا وماستر كارد عبر رابط دفع آمن.</li>
+    <li>الدفع نقداً عند الاستلام.</li>
+  </ul>
+
+  <h2>الاسترجاع والاستبدال</h2>
+  <ul>
+    <li>يحق لك فحص الطلب عند الاستلام ورفضه إذا كان تالفاً أو مخالفاً لما طلبته.</li>
+    <li>يمكن استرجاع المنتج خلال 3 أيام من الاستلام بشرط أن يكون مغلقاً وبحالته الأصلية، لأسباب صحية لا يمكن استرجاع المنتجات المفتوحة.</li>
+    <li>في حال وجود خطأ من جهتنا (منتج تالف أو مختلف) نتحمل أجور الإرجاع كاملة.</li>
+    <li>يُعاد المبلغ بنفس طريقة الدفع الأصلية خلال 7 أيام عمل من استلامنا للمنتج المرتجع.</li>
+  </ul>
+
+  <h2>إلغاء الطلب</h2>
+  <p>يمكنك إلغاء الطلب مجاناً قبل خروجه للتوصيل بالتواصل معنا على واتساب مع ذكر رقم الطلب.</p>
+
+  <div class="note">المنتجات الطبيعية لا تغني عن استشارة الطبيب.</div>
+</article></main>
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  const f = n => n.toLocaleString("en-US") + " " + STORE.currency;
+  document.getElementById("sb").textContent = f(STORE.delivery.baghdad);
+  document.getElementById("so").textContent = f(STORE.delivery.other);
+</script>
+</body>
+</html>
