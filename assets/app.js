@@ -39,9 +39,9 @@
       <span class="pl cardlogo" title="Mastercard"><img src="assets/pay/mastercard.svg" alt="Mastercard"></span>
     </div>`;
 
-  const photo = (p, tag) => `
+  const photo = (p, tag, src) => `
     <div class="ph ${p.tone || "olive"}">
-      ${p.image ? `<img src="${p.image}" alt="${p.name}" loading="lazy">` : ICON.leaf}
+      ${(src = src || (p.images || [])[0]) ? `<img src="${src}" alt="${p.name}" loading="lazy">` : ICON.leaf}
       ${tag ? `<span class="tag">${tag}</span>` : ""}
     </div>`;
 
@@ -86,7 +86,7 @@
   function home() {
     $("#grid").innerHTML = P.map(p => `
       <a class="card" href="product.html?id=${p.id}">
-        ${photo(p, p.weight)}
+        ${photo(p, p.badge || p.weight)}
         <div class="body">
           <span class="sub">${p.subtitle}</span>
           <h3>${p.name}</h3>
@@ -105,7 +105,10 @@
     $("#crumb").textContent = p.name;
     root.innerHTML = `
       <div class="product">
-        ${photo(p, p.weight)}
+        <div class="gallery">
+          <div id="main">${photo(p, p.badge || p.weight)}</div>
+          ${(p.images || []).length > 1 ? `<div class="thumbs">${p.images.map((s, i) => `<button type="button" class="${i ? "" : "on"}" data-i="${i}"><img src="${s}" alt="" loading="lazy"></button>`).join("")}</div>` : ""}
+        </div>
         <div class="pinfo">
           <span class="sub">${p.subtitle}</span>
           <h1>${p.name}</h1>
@@ -120,8 +123,13 @@
             <div class="safe">${ICON.lock} دفع آمن · توصيل لكل العراق · الدفع عند الاستلام متاح</div>
             ${payStrip("paystrip")}
           </div>
+          ${(p.sections || []).map(s => `<div class="psec"><h3>${s.title}</h3><ul class="points">${s.items.map(x => `<li>${x}</li>`).join("")}</ul></div>`).join("")}
         </div>
       </div>`;
+    root.querySelectorAll(".thumbs button").forEach(b => b.onclick = () => {
+      $("#main").innerHTML = photo(p, p.badge || p.weight, p.images[b.dataset.i]);
+      root.querySelectorAll(".thumbs button").forEach(x => x.classList.toggle("on", x === b));
+    });
     const q = $("#q");
     const upd = () => { q.value = clampQ(q.value); $("#tot").innerHTML = money(p.price * q.value); };
     root.querySelectorAll(".qty button").forEach(b => b.onclick = () => { q.value = clampQ(+q.value + +b.dataset.d); upd(); });
