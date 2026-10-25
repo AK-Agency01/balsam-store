@@ -33,12 +33,12 @@ window.PRODUCTS = [
     subtitle: "عناية بالجسم للنعومة الدائمة",
     price: 25000,
     images: [
-      "assets/products/vanica-1.jpg",
-      "assets/products/vanica-2.jpg",
-      "assets/products/vanica-3.jpg",
-      "assets/products/vanica-4.jpg",
-      "assets/products/vanica-5.jpg",
-      "assets/products/vanica-6.jpg"
+      "assets/products/vanica-1.jpg?v=2",
+      "assets/products/vanica-2.jpg?v=2",
+      "assets/products/vanica-3.jpg?v=2",
+      "assets/products/vanica-4.jpg?v=2",
+      "assets/products/vanica-5.jpg?v=2",
+      "assets/products/vanica-6.jpg?v=2"
     ],
     tone: "sky",
     weight: "زيت + كريم",
