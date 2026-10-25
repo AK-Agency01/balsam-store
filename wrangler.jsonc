@@ -2,7 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "nukhla",
   "compatibility_date": "2026-10-19",
+  "workers_dev": true,
   "assets": {
     "directory": "."
-  }
+  },
+  "routes": [
+    { "pattern": "iq-inc.health", "custom_domain": true },
+    { "pattern": "www.iq-inc.health", "custom_domain": true }
+  ]
 }
