@@ -64,8 +64,6 @@ window.PRODUCTS = [
     images: [
       "assets/products/insucure-1.jpg?v=2",
       "assets/products/insucure-2.jpg?v=2",
-      "assets/products/insucure-3.jpg?v=2",
-      "assets/products/insucure-4.jpg?v=2",
       "assets/products/insucure-5.jpg?v=2",
       "assets/products/insucure-6.jpg?v=2"
     ],
@@ -105,9 +103,9 @@ window.PRODUCTS = [
     images: ["assets/products/africangel-1.jpg?v=2"],
     fit: "contain",
     tone: "olive",
-    weight: "نوعان",
-    description: "الجل الأفريقي (African Gel) للرجال، للاستعمال الخارجي. عبوة بمضخة سهلة الاستخدام، ومتوفر بنوعين: الأحمر والأخضر.",
-    points: ["للاستعمال الخارجي فقط", "عبوة بمضخة عملية", "متوفر بنوعين: أحمر وأخضر"],
+    weight: "استخدام خارجي",
+    description: "الجل الأفريقي (African Gel) للرجال، للاستخدام الخارجي. عبوة بمضخة سهلة الاستخدام.",
+    points: ["للاستخدام الخارجي فقط", "عبوة بمضخة عملية"],
     variants: [
       { id: "red", name: "الأحمر", color: "#9b1c1c" },
       { id: "green", name: "الأخضر", color: "#9dc12f" }
