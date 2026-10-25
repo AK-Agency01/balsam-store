@@ -165,7 +165,6 @@
     note(); render();
 
     const rules = {
-      name: v => v.trim().length >= 3 || "يرجى كتابة الاسم الكامل",
       phone: v => /^07[3-9]\d{8}$/.test(v.replace(/[\s-]/g, "").replace(/^\+?964/, "0")) || "رقم الهاتف غير صحيح (مثال: 07701234567)",
       gov: v => !!v || "يرجى اختيار المحافظة",
       area: v => v.trim().length >= 2 || "يرجى كتابة المنطقة / الحي",
@@ -192,7 +191,6 @@
         subtotal: p.price * qty, shipping: s, total: p.price * qty + s,
         pay: document.querySelector("[name=pay]:checked").value,
         customer: {
-          name: $("#name").value.trim(),
           phone: $("#phone").value.replace(/[\s-]/g, ""),
           gov: $("#gov").value, area: $("#area").value.trim(),
           address: $("#address").value.trim(), landmark: $("#landmark").value.trim(),
@@ -219,7 +217,7 @@
       `طلب جديد من متجر ${S.name}`, `رقم الطلب: ${o.id}`, ``,
       `المنتج: ${o.name}`, `العدد: ${o.qty}`, `المجموع: ${fmt(o.subtotal)} ${S.currency}`,
       `التوصيل: ${fmt(o.shipping)} ${S.currency}`, `الإجمالي: ${fmt(o.total)} ${S.currency}`, ``,
-      `الاسم: ${c.name}`, `الهاتف: ${c.phone}`, `المحافظة: ${c.gov}`, `المنطقة: ${c.area}`,
+      `الهاتف: ${c.phone}`, `المحافظة: ${c.gov}`, `المنطقة: ${c.area}`,
       `العنوان: ${c.address}`, c.landmark ? `أقرب نقطة دالة: ${c.landmark}` : "", ``,
       `طريقة الدفع: ${m.name}`, c.notes ? `ملاحظات: ${c.notes}` : ""
     ].filter((x, i, a) => x !== "" || a[i - 1] !== "").join("\n");
@@ -239,7 +237,7 @@
     root.innerHTML = `
       <div class="ok">${ICON.check}</div>
       <h1>تم استلام طلبك بنجاح</h1>
-      <p style="color:var(--muted)">شكراً ${c.name}، سنتواصل معك على الرقم <span dir="ltr">${c.phone}</span> لتأكيد الطلب.</p>
+      <p style="color:var(--muted)">شكراً لك، سنتواصل معك على الرقم <span dir="ltr">${c.phone}</span> لتأكيد الطلب.</p>
       <div class="oid">${o.id}</div>
       ${payHtml}
       <div class="panel"><div class="kv">
