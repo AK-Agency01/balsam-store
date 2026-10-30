@@ -109,6 +109,7 @@
     document.title = `${p.name} | ${S.name}`;
     $("#crumb").textContent = p.name;
     track("ViewContent", p);
+    track("InitiateCheckout", p);
     root.innerHTML = `
       <div class="product">
         <div class="gallery">
@@ -280,6 +281,9 @@
   }
 
   shell();
-  ({ home, product, checkout, success }[document.body.dataset.page] || (() => {}))();
+  const page = document.body.dataset.page;
+  // InitiateCheckout عند فتح أي صفحة؛ صفحتا المنتج والدفع تُرسلانه مع بيانات المنتج
+  if (window.ttq && page !== "product" && page !== "checkout") ttq.track("InitiateCheckout");
+  ({ home, product, checkout, success }[page] || (() => {}))();
   window.BALSAM = { ICON };
 })();
