@@ -9,7 +9,7 @@
   // أحداث بكسل تيك توك (assets/pixel.js)
   const track = (ev, p, qty = 1, value) => window.ttq && ttq.track(ev, {
     contents: [{ content_id: p.id, content_name: p.name, content_type: "product", quantity: qty, price: p.price }],
-    value: value ?? p.price * qty, currency: "IQD"
+    content_type: "product", value: value ?? p.price * qty, currency: "IQD"
   });
 
   const ICON = {
@@ -283,7 +283,11 @@
   shell();
   const page = document.body.dataset.page;
   // InitiateCheckout عند فتح أي صفحة؛ صفحتا المنتج والدفع تُرسلانه مع بيانات المنتج
-  if (window.ttq && page !== "product" && page !== "checkout") ttq.track("InitiateCheckout");
+  // بقية الصفحات لا منتج فيها، فنرسل منتجات المتجر كلها حتى لا يغيب content_id
+  if (window.ttq && page !== "product" && page !== "checkout") ttq.track("InitiateCheckout", {
+    contents: P.map(p => ({ content_id: p.id, content_name: p.name, content_type: "product", quantity: 1, price: p.price })),
+    content_type: "product", value: Math.min(...P.map(p => p.price)), currency: "IQD"
+  });
   ({ home, product, checkout, success }[page] || (() => {}))();
   window.BALSAM = { ICON };
 })();
