@@ -6,6 +6,11 @@
   const qs = new URLSearchParams(location.search);
   const findP = id => P.find(p => p.id === id);
   const clampQ = q => Math.min(99, Math.max(1, parseInt(q, 10) || 1));
+  // أحداث بكسل تيك توك (assets/pixel.js)
+  const track = (ev, p, qty = 1, value) => window.ttq && ttq.track(ev, {
+    contents: [{ content_id: p.id, content_name: p.name, content_type: "product", quantity: qty, price: p.price }],
+    value: value ?? p.price * qty, currency: "IQD"
+  });
 
   const ICON = {
     leaf: `<svg class="leaf" viewBox="0 0 64 64" fill="none"><path d="M52 8C28 8 12 22 12 42c0 5 1 9 3 12 3-14 12-24 26-30-11 8-19 18-22 32 4 2 8 2 12 1 18-4 25-22 21-49Z" fill="#1f3a32" opacity=".78"/><path d="M15 54c3-14 12-24 26-30" stroke="#fffdf7" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>`,
@@ -103,6 +108,7 @@
     if (!p) { root.innerHTML = `<div class="empty"><h2>المنتج غير موجود</h2><p><a href="./" style="color:var(--teal)">العودة إلى المنتجات</a></p></div>`; return; }
     document.title = `${p.name} | ${S.name}`;
     $("#crumb").textContent = p.name;
+    track("ViewContent", p);
     root.innerHTML = `
       <div class="product">
         <div class="gallery">
@@ -149,6 +155,7 @@
     let qty = clampQ(qs.get("q"));
     const variant = p.variants ? (p.variants.find(v => v.id === qs.get("v")) || p.variants[0]) : null;
     const pname = variant ? `${p.name} (${variant.name})` : p.name;
+    track("InitiateCheckout", p, qty);
 
     $("#gov").innerHTML = `<option value="">اختر المحافظة</option>` + GOVS.map(g => `<option>${g}</option>`).join("");
     $("#methods").innerHTML = Object.entries(PAY).map(([k, m], i) => {
@@ -211,6 +218,8 @@
           notes: $("#notes").value.trim()
         }
       };
+      if (window.ttq) ttq.identify({ phone_number: "+964" + order.customer.phone.replace(/^\+?964|^0/, "") });
+      track("PlaceAnOrder", p, qty, order.total);
       // نحفظ الطلب في الجلسة فقط حتى لا تظهر بيانات الزبون في الرابط
       let url = "success.html";
       try { sessionStorage.setItem("balsam_order", JSON.stringify(order)); }
