@@ -9,5 +9,5 @@
 ## بكسل تيك توك
 - البكسل **Balsam Store Pixel** — الكود `DBIFLMJC77U5K8DLMGFG` (Pixel ID 7702552142594375698) في الحساب الإعلاني **7422485821770481680** (Ad Solutions 154)، أُنشئ في 2026-10-31.
 - الكود الأساسي في `assets/pixel.js` ومضمَّن في `<head>` كل الصفحات (يُطلق Pageview).
-- الأحداث في `assets/app.js` (الدالة `track`): ViewContent في صفحة المنتج، **InitiateCheckout عند فتح أي صفحة** (طلب الزبون 2026-10-31؛ في صفحتي المنتج والدفع يُرسل مع بيانات المنتج)، PlaceAnOrder عند تأكيد الطلب (مع رقم الهاتف للمطابقة المتقدمة). العملة IQD.
+- الأحداث في `assets/app.js` (الدالة `track`): ViewContent في صفحة المنتج، **InitiateCheckout عند فتح أي صفحة** (طلب الزبون 2026-10-31؛ في صفحتي المنتج والدفع يُرسل مع بيانات المنتج، وفي بقية الصفحات مع كل منتجات المتجر حتى لا يغيب content_id الذي يطلبه Pixel Helper)، PlaceAnOrder عند تأكيد الطلب (مع رقم الهاتف للمطابقة المتقدمة). العملة IQD.
 - النشر: `git push` ثم `npx wrangler@4 deploy` (الموقع على Cloudflare: iq-inc.health).
